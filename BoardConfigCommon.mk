@@ -20,28 +20,24 @@
 # definition file).
 #
 
-# WARNING: This line must come *before* including the proprietary
-# variant, so that it gets overwritten by the parent (which goes
-# against the traditional rules of inheritance).
-USE_CAMERA_STUB := true
-
 # inherit from common msm8960
 -include device/samsung/msm8960-common/BoardConfigCommon.mk
 
 TARGET_SPECIFIC_HEADER_PATH := device/samsung/jf-common/include
 
 # Kernel
-TARGET_KERNEL_SOURCE        := kernel/samsung/jf
-BOARD_KERNEL_CMDLINE        := androidboot.hardware=qcom user_debug=31 zcache
-BOARD_KERNEL_BASE           := 0x80200000
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000
-BOARD_KERNEL_PAGESIZE       := 2048
+TARGET_KERNEL_SOURCE         := kernel/samsung/jf
+BOARD_KERNEL_CMDLINE         := androidboot.hardware=qcom user_debug=31 zcache
+BOARD_KERNEL_BASE            := 0x80200000
+BOARD_MKBOOTIMG_ARGS         := --ramdisk_offset 0x02000000
+BOARD_KERNEL_PAGESIZE        := 2048
 TARGET_KERNEL_VARIANT_CONFIG := cyanogen_jf_defconfig
-ifeq ($(HAVE_SELINUX),true)
 TARGET_KERNEL_SELINUX_CONFIG := jfselinux_defconfig
-endif
 
 TARGET_BOOTLOADER_BOARD_NAME := MSM8960
+
+# Adreno configuration
+BOARD_EGL_CFG := device/samsung/jf-common/configs/egl.cfg
 
 # Recovery
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/jf-common/recovery/recovery_keys.c
@@ -50,8 +46,8 @@ BOARD_USES_MMCUTILS := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_SELECT_BUTTON := true
+BOARD_RECOVERY_SWIPE := true
 TARGET_RECOVERY_FSTAB := device/samsung/jf-common/rootdir/etc/fstab.qcom
-RECOVERY_FSTAB_VERSION := 2
 
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00A00000
@@ -64,6 +60,13 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/jf-common/bluetooth
 BOARD_BLUEDROID_VENDOR_CONF := device/samsung/jf-common/bluetooth/vnd_jf.txt
 BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY := false
+
+# Needed for blobs
+COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
+
+# Adreno
+OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
+HAVE_ADRENO_SOURCE := false
 
 # NFC
 BOARD_NFC_HAL_SUFFIX := msm8960
@@ -89,3 +92,9 @@ BOARD_USES_SEPERATED_VOIP := true
 # Use seperate devices for 3-pole headset
 BOARD_USES_SEPERATED_HEADSET_MIC := true
 
+# Time services
+BOARD_USES_QC_TIME_SERVICES := true
+
+# Camera
+TARGET_NEED_CAMERA_ZSL := true
+TARGET_NEED_SAMSUNG_MAGIC_ZSL_1508 := true
