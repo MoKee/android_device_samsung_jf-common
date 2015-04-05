@@ -1,5 +1,9 @@
 [
   {
+    "repository": "android_vendor_samsung_jf-common",
+    "target_path": "vendor/samsung/jf-common"
+  },
+  {
     "repository": "android_device_samsung_qcom-common",
     "target_path": "device/samsung/qcom-common"
   },
