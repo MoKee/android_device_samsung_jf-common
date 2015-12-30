@@ -40,7 +40,7 @@ BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 zcache msm_rtb.f
 BOARD_KERNEL_BASE := 0x80200000
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000
 BOARD_KERNEL_PAGESIZE := 2048
-TARGET_KERNEL_CONFIG := cyanogen_jf_defconfig
+TARGET_KERNEL_CONFIG := mokee_jf_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
 TARGET_KERNEL_SOURCE := kernel/samsung/jf
 
@@ -79,8 +79,8 @@ BOARD_CHARGING_CMDLINE_VALUE := "true"
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_SHOW_PERCENTAGE := true
 
-# CMHW
-BOARD_HARDWARE_CLASS += $(COMMON_PATH)/cmhw
+# MKHW
+BOARD_HARDWARE_CLASS += $(COMMON_PATH)/mkhw
 
 # Display
 BOARD_USES_LEGACY_MMAP := true
