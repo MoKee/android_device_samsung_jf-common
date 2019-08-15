@@ -26,7 +26,7 @@ using android::base::Trim;
 using android::base::WriteStringToFile;
 
 namespace vendor {
-namespace lineage {
+namespace mokee {
 namespace livedisplay {
 namespace V2_0 {
 namespace implementation {
@@ -34,7 +34,7 @@ namespace implementation {
 static constexpr const char *kHBMPath = "/sys/class/lcd/panel/panel/auto_brightness";
 static constexpr const char *kSREPath = "/sys/class/mdnie/mdnie/outdoor";
 
-// Methods from ::vendor::lineage::livedisplay::V2_0::ISunlightEnhancement follow.
+// Methods from ::vendor::mokee::livedisplay::V2_0::ISunlightEnhancement follow.
 bool SunlightEnhancement::isSupported() {
     std::fstream sre(kSREPath, sre.in | sre.out);
     std::fstream hbm(kHBMPath, hbm.in | hbm.out);
@@ -46,7 +46,7 @@ bool SunlightEnhancement::isSupported() {
     return sre.good();
 }
 
-// Methods from ::vendor::lineage::livedisplay::V2_0::IAdaptiveBacklight follow.
+// Methods from ::vendor::mokee::livedisplay::V2_0::IAdaptiveBacklight follow.
 Return<bool> SunlightEnhancement::isEnabled() {
     std::string tmp;
     int32_t statusSRE = 0;
@@ -73,5 +73,5 @@ Return<bool> SunlightEnhancement::setEnabled(bool enabled) {
 }  // namespace implementation
 }  // namespace V2_0
 }  // namespace livedisplay
-}  // namespace lineage
+}  // namespace mokee
 }  // namespace vendor

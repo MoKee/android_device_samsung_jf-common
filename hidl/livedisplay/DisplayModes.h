@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-#ifndef VENDOR_LINEAGE_LIVEDISPLAY_V2_0_DISPLAYMODES_H
-#define VENDOR_LINEAGE_LIVEDISPLAY_V2_0_DISPLAYMODES_H
+#ifndef VENDOR_MOKEE_LIVEDISPLAY_V2_0_DISPLAYMODES_H
+#define VENDOR_MOKEE_LIVEDISPLAY_V2_0_DISPLAYMODES_H
 
-#include <vendor/lineage/livedisplay/2.0/IDisplayModes.h>
+#include <vendor/mokee/livedisplay/2.0/IDisplayModes.h>
 #include <hidl/MQDescriptor.h>
 #include <hidl/Status.h>
 
 namespace vendor {
-namespace lineage {
+namespace mokee {
 namespace livedisplay {
 namespace V2_0 {
 namespace implementation {
@@ -40,7 +40,7 @@ class DisplayModes : public IDisplayModes {
     DisplayModes();
     bool isSupported();
 
-    // Methods from ::vendor::lineage::livedisplay::V2_0::IDisplayModes follow.
+    // Methods from ::vendor::mokee::livedisplay::V2_0::IDisplayModes follow.
     Return<void> getDisplayModes(getDisplayModes_cb resultCb) override;
     Return<void> getCurrentDisplayMode(getCurrentDisplayMode_cb resultCb) override;
     Return<void> getDefaultDisplayMode(getDefaultDisplayMode_cb resultCb) override;
@@ -55,7 +55,7 @@ class DisplayModes : public IDisplayModes {
 }  // namespace implementation
 }  // namespace V2_0
 }  // namespace livedisplay
-}  // namespace lineage
+}  // namespace mokee
 }  // namespace vendor
 
-#endif  // VENDOR_LINEAGE_LIVEDISPLAY_V2_0_DISPLAYMODES_H
+#endif  // VENDOR_MOKEE_LIVEDISPLAY_V2_0_DISPLAYMODES_H

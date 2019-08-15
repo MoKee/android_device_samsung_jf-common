@@ -22,7 +22,7 @@ $(call inherit-product-if-exists, vendor/samsung/jf-common/jf-common-vendor.mk)
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-mokee
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -170,7 +170,7 @@ PRODUCT_PACKAGES += \
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service.jf
+    vendor.mokee.livedisplay@2.0-service.jf
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -249,11 +249,11 @@ PRODUCT_COPY_FILES += \
 
 # Trust
 PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
+    vendor.mokee.trust@1.0-service
 
 # Touch
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.jf
+    vendor.mokee.touch@1.0-service.jf
 
 # USB
 PRODUCT_PACKAGES += \

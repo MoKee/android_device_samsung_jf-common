@@ -1,9 +1,9 @@
 cc_binary {
-    name: "vendor.lineage.livedisplay@2.0-service.jf",
+    name: "vendor.mokee.livedisplay@2.0-service.jf",
     defaults: ["hidl_defaults"],
     vendor: true,
     relative_install_path: "hw",
-    init_rc: ["vendor.lineage.livedisplay@2.0-service.jf.rc"],
+    init_rc: ["vendor.mokee.livedisplay@2.0-service.jf.rc"],
     srcs: [
         "DisplayColorCalibration.cpp",
         "DisplayModes.cpp",
@@ -15,6 +15,6 @@ cc_binary {
         "libhidlbase",
         "libhidltransport",
         "libutils",
-        "vendor.lineage.livedisplay@2.0",
+        "vendor.mokee.livedisplay@2.0",
     ],
 }
