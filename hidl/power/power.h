@@ -128,5 +128,5 @@ static power_profile profiles[PROFILE_MAX] = {
             },
 };
 
-// Custom Lineage hints
+// Custom MoKee hints
 const static power_hint_t POWER_HINT_SET_PROFILE = (power_hint_t)0x00000111;
