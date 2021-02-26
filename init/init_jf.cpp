@@ -48,7 +48,9 @@ void vendor_load_properties()
 
     if (ReadFileToString(serial_number_file, &serial_number)) {
         serial_number = Trim(serial_number);
-        property_override("ro.serialno", serial_number.c_str());
+        if (serial_number != "00000000000") {
+            property_override("ro.serialno", serial_number.c_str());
+        }
     }
 
     if (bootloader.find("M919") == 0) {
